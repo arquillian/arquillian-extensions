@@ -21,6 +21,13 @@
 
  Example
  ========
+
+ @Deployment
+ def static JavaArchive "create deployment"() {
+     return ShrinkWrap.create(JavaArchive.class)
+             .addClasses(AccountService.class, Account.class, SecureAccountService.class)
+             .addManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+ }
  
  @Inject 
  AccountService service
